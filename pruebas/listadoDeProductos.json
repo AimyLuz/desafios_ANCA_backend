@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Monitor",
+        "description": "descripcion 1",
+        "price": 10000,
+        "thumbnail": "img 1",
+        "code": "AA01",
+        "stock": 10,
+        "id": 1
+    },
+    {
+        "title": "Teclado",
+        "description": "descripcion 2",
+        "price": 5000,
+        "thumbnail": "img 2",
+        "code": "AA02",
+        "stock": 8,
+        "id": 2
+    },
+    {
+        "title": "percha",
+        "description": "descripcion 4",
+        "price": 500,
+        "thumbnail": "img 4",
+        "code": "AA04",
+        "stock": 5,
+        "id": 3
+    },
+    {
+        "title": "lala",
+        "description": "descridspcion 4",
+        "price": 5300,
+        "thumbnail": "img 5",
+        "code": "AA05",
+        "stock": 7,
+        "id": 4
+    }
+]

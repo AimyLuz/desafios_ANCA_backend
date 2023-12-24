@@ -1,39 +1,34 @@
-
+const fs = require('fs').promises;
 class ProductManager {
     constructor() {
         this.products = [];
+        this.path = './listadoProductos.json';
     }
     static id = 0;
-    addProduct(title, description, price, thumbnail, code, stock) {
-        const newProduct = {
-            title,
-            description,
-            price,
-            thumbnail,
-            code,
-            stock,
-        };
+    addProduct = async (title, description, price, thumbnail, code, stock) => {
+        const newProduct = { title, description, price, thumbnail, code, stock,};
 
         for (let i = 0; i < this.products.length; i++) {
             if (this.products[i].code === code) {
                 console.log(`El código ${code} del producto "${title}" está repetido.`);
             }
         }
+        await fs.writeFile(this.path, JSON.stringify(this.products))
         const missingFields = [];
-        for (const key in newProduct){
-            if (newProduct[key] === undefined){
+        for (const key in newProduct) {
+            if (newProduct[key] === undefined) {
                 missingFields.push(key);
             }
-        } 
-        if (missingFields.length === 0){
+        }
+        if (missingFields.length === 0) {
             ProductManager.id++;
             this.products.push({ ...newProduct, id: ProductManager.id });
         } else {
             console.log(`Por favor, completar los campos faltantes del producto "${title}": ${missingFields.join(', ')}`);
         }
 
-       // if (!Object.values(newProduct).includes(undefined)) {
-            
+        // if (!Object.values(newProduct).includes(undefined)) {
+
     }
 
     getProduct() {
@@ -54,7 +49,7 @@ const productos = new ProductManager();
 //Primer llamada = arreglo vacio
 console.log(productos.getProduct());
 
-        
+
 
 //Agregamos productos
 productos.addProduct(
